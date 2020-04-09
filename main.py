@@ -1,6 +1,7 @@
 import pygame
 import sys
 from Racquet import Racquet
+from Ball import Ball
 
 pygame.init()                           #initialization 
 
@@ -11,26 +12,31 @@ def main():
     root = pygame.display.set_mode((600, 400)) #create window
     pygame.display.set_caption("Pong")  #title of window
 
+    #list that will contain all the sprites to use in game:
+    all_sprites_list = pygame.sprite.Group()
+    
     #first racket initialization:
     RacquetA = Racquet((255, 255, 255), 10, 80)
     RacquetA.rect.x = 20
     RacquetA.rect.y = 160
+    all_sprites_list.add(RacquetA)
 
     #second racket initialization:
     RacquetB = Racquet((255, 255, 255), 10, 80)
     RacquetB.rect.x = 570
     RacquetB.rect.y = 160
-
-    #list that will contain all the sprites to use in game:
-    all_sprites_list = pygame.sprite.Group()
- 
-    # Add the paddles to the list of sprites
-    all_sprites_list.add(RacquetA)
     all_sprites_list.add(RacquetB)
+
+    #ball initialization:
+    ball = Ball((255, 255, 255),10,10,root)
+    ball.rect.x = 295
+    ball.rect.y = 195
+    all_sprites_list.add(ball)
+    
     
     clock = pygame.time.Clock()         #clock object initialization
 
-    FPS = 80                            #frame rate
+    FPS = 80                           #frame rate
 
     while True:                         #main program cycle
         for i in pygame.event.get():    #scrolling event list
