@@ -8,6 +8,8 @@ pygame.init()                           #initialization
 Up = 1
 Down = 0
 
+score =[0, 0]
+
 def main():   
     root = pygame.display.set_mode((600, 400)) #create window
     pygame.display.set_caption("Pong")  #title of window
@@ -36,7 +38,7 @@ def main():
     
     clock = pygame.time.Clock()         #clock object initialization
 
-    FPS = 80                           #frame rate
+    FPS = 60                           #frame rate
 
     while True:                         #main program cycle
         for i in pygame.event.get():    #scrolling event list
@@ -58,6 +60,24 @@ def main():
         # --- Game logic should go here
         all_sprites_list.update()
 
+        #Check if the ball is bouncing against any of the 4 walls:
+        if ball.rect.x>=590:
+            ball.velocity[0] = -ball.velocity[0]
+            score[0]+=1
+            print(score[0], '|', score[1]) 
+        if ball.rect.x<=0:
+            ball.velocity[0] = -ball.velocity[0]
+            score[1]+=1
+            print(score[0], '|', score[1]) 
+        if ball.rect.y>390:
+            ball.velocity[1] = -ball.velocity[1]
+        if ball.rect.y<0:
+            ball.velocity[1] = -ball.velocity[1] 
+
+        #Detect collisions between the ball and the paddles
+        if pygame.sprite.collide_mask(ball, RacquetA) or pygame.sprite.collide_mask(ball, RacquetB):
+            ball.bounce()
+        
         #clear the screen to black: 
         root.fill((0,0,0))
         
