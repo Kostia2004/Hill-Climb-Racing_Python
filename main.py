@@ -4,6 +4,9 @@ from Racquet import Racquet
 
 pygame.init()                           #initialization 
 
+Up = 1
+Down = 0
+
 def main():   
     root = pygame.display.set_mode((600, 400)) #create window
     pygame.display.set_caption("Pong")  #title of window
@@ -34,6 +37,20 @@ def main():
             if i.type == pygame.QUIT:
                 pygame.quit()           #program stop
                 sys.exit()              #close window
+
+        #Moving the paddles when the user uses the arrow keys (player A) or "W/S" keys (player B) 
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_w]:
+            RacquetA.move(5, Up)
+        if keys[pygame.K_s]:
+            RacquetA.move(5, Down)
+        if keys[pygame.K_UP]:
+            RacquetB.move(5, Up)
+        if keys[pygame.K_DOWN]:
+            RacquetB.move(5, Down)    
+ 
+        # --- Game logic should go here
+        all_sprites_list.update()
 
         #clear the screen to black: 
         root.fill((0,0,0))

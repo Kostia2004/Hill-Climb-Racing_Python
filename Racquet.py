@@ -14,3 +14,12 @@ class Racquet(sprite.Sprite):
         draw.rect(self.image, color, [0, 0, width, height])
 
         self.rect = self.image.get_rect()
+    def move(self, pix, destination):
+        if destination==1:
+            self.rect.y-=pix
+            if self.rect.y<=0:
+                self.rect.y=0
+        if destination==0:
+            self.rect.y+=pix
+            if self.rect.y>320:
+                self.rect.y=320
