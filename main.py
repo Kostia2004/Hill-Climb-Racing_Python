@@ -83,9 +83,17 @@ def main():
         
         #Draw the net:
         pygame.draw.line(root, (255, 255, 255), [299, 0], [299, 400], 1)
+        pygame.draw.line(root, (255, 255, 255), [0, 55], [599, 55], 1)
 
         #Draw game objects from the list of sprites
         all_sprites_list.draw(root) 
+
+        #Display scores:
+        font = pygame.font.Font(None, 74)
+        text = font.render(str(score[0]), 1, (255,255,255))
+        root.blit(text, (200,5))
+        text = font.render(str(score[1]), 1, (255,255,255))
+        root.blit(text, (400,5))
 
         # Go ahead and update the screen:
         pygame.display.flip()
