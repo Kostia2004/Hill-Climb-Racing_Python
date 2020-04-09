@@ -1,11 +1,11 @@
 import pygame
 import sys
-from tkinter import *
+from Racquet import Racquet
 
 pygame.init()                           #initialization 
 
 def main():   
-    root = pygame.display.set_mode((700, 500)) #create window
+    root = pygame.display.set_mode((600, 400)) #create window
     pygame.display.set_caption("Pong")  #title of window
     
     clock = pygame.time.Clock()         #clock object initialization
@@ -22,7 +22,7 @@ def main():
         root.fill((0,0,0))
         
         #Draw the net:
-        pygame.draw.line(root, (255, 255, 255), [349, 0], [349, 500], 5)
+        pygame.draw.line(root, (255, 255, 255), [299, 0], [299, 400], 1)
 
         # Go ahead and update the screen:
         pygame.display.flip()
