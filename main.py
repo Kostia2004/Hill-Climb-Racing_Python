@@ -11,7 +11,7 @@ Down = 0
 score =[0, 0]
 
 def main():   
-    root = pygame.display.set_mode((600, 400)) #create window
+    root = pygame.display.set_mode((600, 455)) #create window
     pygame.display.set_caption("Pong")  #title of window
 
     #list that will contain all the sprites to use in game:
@@ -20,13 +20,13 @@ def main():
     #first racket initialization:
     RacquetA = Racquet((255, 255, 255), 10, 80)
     RacquetA.rect.x = 20
-    RacquetA.rect.y = 160
+    RacquetA.rect.y = 187
     all_sprites_list.add(RacquetA)
 
     #second racket initialization:
     RacquetB = Racquet((255, 255, 255), 10, 80)
     RacquetB.rect.x = 570
-    RacquetB.rect.y = 160
+    RacquetB.rect.y = 187
     all_sprites_list.add(RacquetB)
 
     #ball initialization:
@@ -69,9 +69,9 @@ def main():
             ball.velocity[0] = -ball.velocity[0]
             score[1]+=1
             print(score[0], '|', score[1]) 
-        if ball.rect.y>390:
+        if ball.rect.y>445:
             ball.velocity[1] = -ball.velocity[1]
-        if ball.rect.y<0:
+        if ball.rect.y<55:
             ball.velocity[1] = -ball.velocity[1] 
 
         #Detect collisions between the ball and the paddles
@@ -82,7 +82,7 @@ def main():
         root.fill((0,0,0))
         
         #Draw the net:
-        pygame.draw.line(root, (255, 255, 255), [299, 0], [299, 400], 1)
+        pygame.draw.line(root, (255, 255, 255), [299, 0], [299, 455], 1)
         pygame.draw.line(root, (255, 255, 255), [0, 55], [599, 55], 1)
 
         #Draw game objects from the list of sprites

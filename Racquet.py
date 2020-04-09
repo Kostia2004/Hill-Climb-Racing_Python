@@ -17,9 +17,9 @@ class Racquet(sprite.Sprite):
     def move(self, pix, destination):
         if destination==1:
             self.rect.y-=pix
-            if self.rect.y<=0:
-                self.rect.y=0
+            if self.rect.y<=55:
+                self.rect.y=55
         if destination==0:
             self.rect.y+=pix
-            if self.rect.y>320:
-                self.rect.y=320
+            if self.rect.y>375:
+                self.rect.y=375
