@@ -52,10 +52,10 @@ def main():
             RacquetA.move(5, Up)
         if keys[pygame.K_s]:
             RacquetA.move(5, Down)
-        if keys[pygame.K_UP]:
+        if ball.rect.y < RacquetB.rect.y+40:
             RacquetB.move(5, Up)
-        if keys[pygame.K_DOWN]:
-            RacquetB.move(5, Down)    
+        if ball.rect.y > RacquetB.rect.y+40:
+            RacquetB.move(5, Down)
  
         # --- Game logic should go here
         all_sprites_list.update()
