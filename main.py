@@ -69,14 +69,18 @@ def main():
             ball.velocity[0] = -ball.velocity[0]
             score[1]+=1
             print(score[0], '|', score[1]) 
-        if ball.rect.y>445:
+        if ball.rect.y>=445:
+            ball.rect.y=445
             ball.velocity[1] = -ball.velocity[1]
-        if ball.rect.y<55:
+        if ball.rect.y<=55:
+            ball.rect.y=55
             ball.velocity[1] = -ball.velocity[1] 
 
-        #Detect collisions between the ball and the paddles
-        if pygame.sprite.collide_mask(ball, RacquetA) or pygame.sprite.collide_mask(ball, RacquetB):
-            ball.bounce()
+        #Detect collisions between the ball and the racquets
+        if pygame.sprite.collide_mask(ball, RacquetA):
+            ball.bounce(True)
+        elif pygame.sprite.collide_mask(ball, RacquetB):
+            ball.bounce(False)
         
         #clear the screen to black: 
         root.fill((0,0,0))
