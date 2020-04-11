@@ -90,10 +90,18 @@ def main():
 
         #Display scores:
         font = pygame.font.Font(None, 74)
-        text = font.render(str(score[0]), 1, (255,255,255))
-        root.blit(text, (200,5))
-        text = font.render(str(score[1]), 1, (255,255,255))
-        root.blit(text, (400,5))
+        if score[0]<1000:
+            text = font.render(str(score[0]), 1, (255,255,255))
+            root.blit(text, (125,5))
+        else:
+            text = font.render(str(score[0]), 1, (255,255,255))
+            root.blit(text, (75,5))
+        if score[1]<1000:
+            text = font.render(str(score[1]), 1, (255,255,255))
+            root.blit(text, (425,5))
+        else:
+            text = font.render(str(score[1]), 1, (255,255,255))
+            root.blit(text, (375,5))
 
         # Go ahead and update the screen:
         pygame.display.flip()
