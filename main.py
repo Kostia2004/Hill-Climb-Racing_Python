@@ -48,9 +48,9 @@ def main():
 
         #Moving the paddles when the user uses the arrow keys (player A) or "W/S" keys (player B) 
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_w]:
+        if keys[pygame.K_w] or keys[pygame.K_UP]:
             RacquetA.move(5, Up)
-        if keys[pygame.K_s]:
+        if keys[pygame.K_s] or keys[pygame.K_DOWN]:
             RacquetA.move(5, Down)
         if ball.rect.y < RacquetB.rect.y+40:
             RacquetB.move(5, Up)
