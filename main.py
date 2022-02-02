@@ -18,13 +18,13 @@ def main():
     all_sprites_list = pygame.sprite.Group()
     
     #first racket initialization:
-    RacquetA = Racquet((255, 255, 255), 10, 80)
+    RacquetA = Racquet((0, 255, 255), 10, 80)
     RacquetA.rect.x = 20
     RacquetA.rect.y = 187
     all_sprites_list.add(RacquetA)
 
     #second racket initialization:
-    RacquetB = Racquet((255, 255, 255), 10, 80)
+    RacquetB = Racquet((255, 0, 255), 10, 80)
     RacquetB.rect.x = 570
     RacquetB.rect.y = 187
     all_sprites_list.add(RacquetB)
@@ -95,16 +95,16 @@ def main():
         #Display scores:
         font = pygame.font.Font(None, 74)
         if score[0]<1000:
-            text = font.render(str(score[0]), 1, (255,255,255))
+            text = font.render(str(score[0]), 1, (0, 255, 255))
             root.blit(text, (125,5))
         else:
-            text = font.render(str(score[0]), 1, (255,255,255))
+            text = font.render(str(score[0]), 1, (0, 255, 255))
             root.blit(text, (75,5))
         if score[1]<1000:
-            text = font.render(str(score[1]), 1, (255,255,255))
+            text = font.render(str(score[1]), 1, (255, 0, 255))
             root.blit(text, (425,5))
         else:
-            text = font.render(str(score[1]), 1, (255,255,255))
+            text = font.render(str(score[1]), 1, (255, 0, 255))
             root.blit(text, (375,5))
 
         # Go ahead and update the screen:
